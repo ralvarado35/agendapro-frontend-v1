@@ -1,0 +1,29 @@
+<h2>Facturas</h2>
+<button routerLink="registrar-empleado" class="btn btn-primary">+ Crear NUeva Factura</button>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.id }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellidos }}</td>
+            <td>{{ empleado.email }}</td>
+            <td>
+              <button (click)="actualizarEmpleado(empleado.id)" class="btn btn-info">Editar</button>
+              <button (click)="eliminarEmpleado(empleado.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+              <button (click)="verDetallesDelEmpleado(empleado.id)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+

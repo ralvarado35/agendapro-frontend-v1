@@ -1,0 +1,34 @@
+<h2>Facturas</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>No.</th>
+            <th>Descripcion</th>
+            <th>Direccion</th>
+            <th>Nit</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let factura of facturas">
+            <td>{{ factura.id }}</td>
+            <td>{{ factura.nombre }}</td>
+            <td>{{ factura.direccion }}</td>
+            <td>{{ factura.nit }}</td>
+            <td>{{ factura.fecha }}</td>
+            <td>{{ factura.total }}</td>
+            <td>
+              <!--
+              <button (click)="actualizarEmpleado(empleado.id)" class="btn btn-info">Editar</button>
+              <button (click)="eliminarEmpleado(empleado.id)" class="btn btn-danger" style="margin-left: 10px">Eliminar</button>
+              <button (click)="verDetallesDelEmpleado(empleado.id)" class="btn btn-primary" style="margin-left: 10px">Detalles</button>-->
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+

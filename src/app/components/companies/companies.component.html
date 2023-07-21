@@ -1,0 +1,99 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Empresas/Negocio</h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formCompany">
+    + Agregar
+  </button>
+  <h1 class="mt-4"></h1>
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      Empresas
+    </div>
+    <div class="card-body">
+
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let company of companies">
+            <td>{{company.id}}</td>
+            <td>{{company.name}}</td>
+            <td>{{company.address}}</td>
+            <td>{{company.phone}}</td>
+            <td>{{company.email}}</td>
+            <td>
+              <button (click)="getCompanyById(company.id)" class="btn btn-info" data-bs-toggle="modal"
+                data-bs-target="#formCompany">Editar</button>
+              <button (click)="deleteCompanyById(company.id)" class="btn btn-danger"
+                style="margin-left: 10px">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+  <!-- Modal New -->
+  <div class="modal fade" id="formCompany" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Empresa/Negocio</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
+          <!-- ID  {{ company.id }}
+          <input type="text"
+                 id="id"
+                 name = "id"
+                 [(ngModel)] = "company.id"
+                 > -->
+
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Nombre : </label>
+              <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="company.name">
+            </div>
+
+            <div class="form-group">
+              <label>Direccion : </label>
+              <input type="text" class="form-control" id="direccion" name="address" [(ngModel)]="company.address">
+            </div>
+
+            <div class="form-group">
+              <label>Telefono : </label>
+              <input type="text" class="form-control" id="telefono" name="phone" [(ngModel)]="company.phone">
+            </div>
+
+            <div class="form-group">
+              <label>Email : </label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="company.email">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</div>
